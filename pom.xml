@@ -1,0 +1,76 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.playwright.test</groupId>
+	<artifactId>PlaywrightJavaProject</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<properties>
+		<!-- Force l'encodage en UTF-8 pour éviter les problèmes de caractères -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!-- Définit la version de Java cible (11 minimum recommandé pour
+		Playwright) -->
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
+	</properties>
+
+	<dependencies>
+		<!-- Playwright Main Library -->
+		<dependency>
+			<groupId>com.microsoft.playwright</groupId>
+			<artifactId>playwright</artifactId>
+			<version>1.62.0</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- Framework de Test : JUnit Jupiter (Fortement recommandé pour
+		structurer vos tests) -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<version>5.11.0</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- Source: https://mvnrepository.com/artifact/org.testng/testng -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>7.12.0</version>
+			<scope>test</scope>
+		</dependency>
+		
+	<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+    <version>3.3.4</version> <!-- Add this line -->
+    </dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<!-- Plugin requis pour compiler le projet avec la bonne version de
+			Java -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.13.0</version>
+			</plugin>
+			<!-- Plugin requis pour exécuter les tests JUnit depuis Maven
+			(Commande : mvn test) -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.5.0</version>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>3.6.3</version>
+				<configuration>
+					<mainClass>com.microsoft.playwright.CLI</mainClass>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+</project>

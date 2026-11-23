@@ -1,0 +1,10 @@
+<suite name="PlaywrightSuite" verbose="1">
+    
+    <test name="UI Title Verifications">
+        <classes>
+            <!-- Reference your test class including the full package name -->
+            <class name="tests.FirstTest"/>
+        </classes>
+    </test>
+
+</suite>
